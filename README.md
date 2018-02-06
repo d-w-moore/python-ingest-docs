@@ -40,11 +40,14 @@ pip install rq rq-dashboard
 ```
 
 From here on out, running `rq-dashboard &` and monitoring on port 9181 will give the status of all worker queues on:  
-  `http://<ip>:9181/normal`  
+  `http://<ip>:9181`  
 or just the queue named ***normal*** on:  
   `http://<ip>:9181/normal`  
 
-Now create a directory $HOME/pyingest and `cd` into it , clone the pwalk (parallelwalk) module and the development version of the ingest tools :
+Now create a directory $HOME/pyingest and `cd` into it , clone the pwalk (parallelwalk) module
+
+
+and install via `pip` the python IRC and development version of the ingest tools :
 
 ```
 cd ; mkdir pyingest
@@ -52,12 +55,18 @@ pip install git+https://github.com/irods/python-irodsclient
 pip install git+https://github.com/irods-contrib/irods_tools_ingest@dev
 ```
 
-It might also help to append these lines to your `.bashrc` :  
+It also helps to append these lines to your `.bashrc` :  
 ```
 PYINGESTMODULES="$HOME/pyingest"
-export PYTHONPATH+=${PYTHONPATH:+:}$PYINGESTMODULES/pwalk:$PYINGESTMODULES/irods_tools_ingest
+export PYTHONPATH+=${PYTHONPATH:+:}$PYINGESTMODULES/pwalk
+```  
+and then exec bash to make sure these are effective in your terminal window.
 
-```
+***(We'll assume they are in effect for the next parts of this section.)***
+
+---
+
+Either open 4 new windows, or spawn subwindows within this terminal window (***tmux*** is handy at this point ) in which your bash settings are active.
 
 
 
