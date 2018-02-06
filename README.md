@@ -50,9 +50,11 @@ Now create a directory $HOME/pyingest and `cd` into it , clone the pwalk (parall
 and install via `pip` the python IRC and development version of the ingest tools :
 
 ```
-cd ; mkdir pyingest
 pip install git+https://github.com/irods/python-irodsclient
 pip install git+https://github.com/irods-contrib/irods_tools_ingest@dev
+cd ; mkdir pyingest ; cd pyingest ; git clone https://github.com/irods/pwalk
+cd pwalk
+git checkout PY3 
 ```
 
 It also helps to append these lines to your `.bashrc` :  
