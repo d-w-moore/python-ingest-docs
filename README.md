@@ -84,10 +84,10 @@ A persistent connection to an iRODS server to register and ingest the files will
 
  ```
 # For register (must be inside the python3 test environment):
-PATHTOSCRIPT=PATHTOSCRIPT=$(dirname $([ -n "$VIRTUAL_ENV" ] && find "$VIRTUAL_ENV" -name 'enqu*.py' -type f 2>/dev/null||echo .))
+PATHTOSCRIPT=$(dirname $([ -n "$VIRTUAL_ENV" ] && find "$VIRTUAL_ENV" -name 'enqu*.py' -type f 2>/dev/null||echo .))
 # __ if we're not in a virtual environment, the next command only works if the enqueue_reg_jobs.py script is
 #    located in the current working directory :
-mpiexec -n 5 python "${PATHTOSCRIPT:=.}/enqueue_reg_jobs.py" /projects/irods/ingest_test/5000_files/ /projects/irods/ingest_test /tempZone/home/rods/test2
+mpiexec -n 5 python "$PATHTOSCRIPT/enqueue_reg_jobs.py" /projects/irods/ingest_test/5000_files/ /projects/irods/ingest_test /tempZone/home/rods/test2
 
 # pattern is:
 # mpiexec -n 5 python [src_physical_path]  [leading_path_mask]  [dest_irods_path]
