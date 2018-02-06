@@ -82,7 +82,7 @@ Either open new windows for the following, or spawn subwindows within this termi
 
 Following are the commands to issue in various windows for the different components of the demo.
 
-A persistent connection to an iRODS server to ingest the files will be necessary.
+A persistent connection to an iRODS server to register and ingest the files will be necessary.
 
 ---
 
