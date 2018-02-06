@@ -91,6 +91,10 @@ A persistent connection to an iRODS server to ingest the files will be necessary
 
 mpiexec -n 5 python ./enqueue_reg_jobs.py /projects/irods/ingest_test/5000_files/ /projects/irods/ingest_test /tempZone/home/rods/test2
 
+# pattern is:
+# mpiexec -n 5 python [src_physical_path]  [leading_path_mask]  [dest_irods_path]
+
+
 For put (ingest):
 irodsqueue ingest -f --timer /PATH/TO/LOCAL/DIR
 
@@ -99,9 +103,6 @@ irodsqueue ingest -f --timer /PATH/TO/LOCAL/DIR
 
 for i in {1..16}; do sleep .1; do
   rq worker -v --burst -w irodsqueue.irodsworker.IrodsWorker high normal low & 
-done 
-
-mpiexec -n 5 python [src_physical_path]  [leading_path_mask]  [dest_irods_path]
-
+done
  ```
  
