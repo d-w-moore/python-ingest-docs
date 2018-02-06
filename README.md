@@ -40,3 +40,5 @@ Install RQ, which will be used to monitor the worker queues
 ```
 pip install rq rq-dashboard 
 ```
+ 
+ 
