@@ -80,12 +80,15 @@ and then `exec bash` to make sure these are effective in your terminal window.
 
 Either open new windows for the following, or spawn subwindows within this terminal window (with `tmux` or similar) in which your new `bash` settings are active.
 
+Following are the commands to issue in various windows for the different components of the demo.
+
+A persistent connection to an iRODS server to ingest the files will be necessary.
 
 ---
 
  ```
+# For register:
 
-For register:
 mpiexec -n 5 python ./enqueue_reg_jobs.py /projects/irods/ingest_test/5000_files/ /projects/irods/ingest_test /tempZone/home/rods/test2
 
 For put (ingest):
@@ -98,7 +101,7 @@ for i in {1..16}; do sleep .1; do
   rq worker -v --burst -w irodsqueue.irodsworker.IrodsWorker high normal low & 
 done 
 
-mpiexec -n 5 python ./enqueue_reg_jobs.py   /data/irods/ /data /tempZone/home/rods/test
+mpiexec -n 5 python [src_physical_path]  [leading_path_mask]  [dest_irods_path]
 
  ```
  
