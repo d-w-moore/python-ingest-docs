@@ -78,24 +78,18 @@ and then `exec bash` to make sure these are effective in your terminal window.
 
 ## DEMO time ...
 
-Either open 4 new windows, or spawn subwindows within this terminal window (***tmux*** is handy at this point ) in which your bash settings are active.
-
+Either open new windows for the following, or spawn subwindows within this terminal window (with `tmux` or similar) in which your new `bash` settings are active.
 
 
 ---
 
-
  ```
- # __each time__
 
 For register:
 mpiexec -n 5 python ./enqueue_reg_jobs.py /projects/irods/ingest_test/5000_files/ /projects/irods/ingest_test /tempZone/home/rods/test2
 
 For put (ingest):
 irodsqueue ingest -f --timer /PATH/TO/LOCAL/DIR
-
-PYINGESTMODULES="$HOME/pyingest"
-export PYTHONPATH+=${PYTHONPATH:+:}$PYINGESTMODULES/pwalk:$PYINGESTMODULES/irods_tools_ingest
 
 # Launch workers
 #  high normal low - are queue names
