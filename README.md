@@ -7,10 +7,6 @@
 sudo apt-get install libopenmpi-dev openmpi-bin
 ```
 
----
-
-Install/update **pip** and **virtualenv**
-
 ##  Make sure a recent version of `pip` is installed:
 
 ```
@@ -32,7 +28,7 @@ cd ; virtualenv -p python3 testenv3
 
 ## Install & run REDIS server
 
-Follow the installation instructions for [REDIS](https://redis.io/download) and start up an instance of the  server in a separate terminal window.
+Follow the installation instructions for [REDIS](https://redis.io/download) and start up an instance of the  server in a separate terminal window.  Redis will need to be running for the queue and worker objects to be registered and visualized.
 
 
 ## Install prerequisites for Ingest Tools
@@ -76,6 +72,8 @@ and then `exec bash` to make sure these are effective in your terminal window.
 
 ***(We'll assume they are in effect for the next parts of this section.)***
 
+---
+
 ## DEMO time ...
 
 Either open new windows for the following, or spawn subwindows within this terminal window (with `tmux` or similar) in which your new `bash` settings are active.
@@ -84,7 +82,6 @@ Following are the commands to issue in various windows for the different compone
 
 A persistent connection to an iRODS server to register and ingest the files will be necessary.
 
----
 
  ```
 # For register:
