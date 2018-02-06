@@ -4,6 +4,7 @@
 
 Install/update **pip** and **virtualenv**
 
+
 ##  Make sure a recent version of `pip` is installed:
 
 ```
@@ -20,21 +21,22 @@ Then create the virtual environment under `$HOME`:
 ```cd ; virtualenv -p python3 testenv3
 ```
 
----
-
-## Install necessary packages for python code needs to make **MPI** calls.
-
-sudo apt-get install libopenmpi-dev openmpi-bin
-pip install mpi4py
-
-Create the virtual python environment using the system `python3` binary  and drop into that virtual environment:
+Follow the installation instructions for [REDIS](https://redis.io/download) and start up an instance of the  server in a separate terminal window.
+Drop into the virtual python environment we created previously:
 ```
-cd ; virtualenv -p python3 testenv3
 source ~/testenv3/bin/activate
 ```
+
 Your prompt should (at least, if using `bash`) reflect you are in the virtual environment.  
+While in the virtual environment, install some other needed prerequisites from irods related repositories:
+
+```
+pip install git+https://github.com/irods/python-irodsclient
+pip install git+https://github.com/irods-contrib/irods_tools_ingest@dev
+```
+
 Install RQ, which will be used to monitor the worker queues
+
 ```
 pip install rq rq-dashboard 
-
 ```
