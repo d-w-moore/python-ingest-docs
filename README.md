@@ -1,6 +1,5 @@
 # python-ingest-docs
 
-
 ## Install libraries for `MPI` calls from python.
 
 ```
@@ -80,13 +79,15 @@ Either open new windows for the following, or spawn subwindows within this termi
 
 Following are the commands to issue in various windows for the different components of the demo.
 
-A persistent connection to an iRODS server to register and ingest the files will be necessary.
+A persistent connection to an iRODS server to register and ingest the files will be necessary , therefore make sure the appropriate **irods-client-icommands** package is already installed via the [iRODS download page](http://irods.org/download) and `iinit` has been run to initiate the server connection. 
 
 
  ```
-# For register:
-
-mpiexec -n 5 python ./enqueue_reg_jobs.py /projects/irods/ingest_test/5000_files/ /projects/irods/ingest_test /tempZone/home/rods/test2
+# For register (must be inside the python3 test environment):
+PATHTOSCRIPT=$(dirname $(find "$VIRTUAL_ENV" -name 'enqu*.py' -type f 2>/dev/null))
+# __ if we're not in a virtual environment, the next command only works if the enqueue_reg_jobs.py script is
+#    located in the current working directory :
+mpiexec -n 5 python "${PATHTOSCRIPT:=.}/enqueue_reg_jobs.py" /projects/irods/ingest_test/5000_files/ /projects/irods/ingest_test /tempZone/home/rods/test2
 
 # pattern is:
 # mpiexec -n 5 python [src_physical_path]  [leading_path_mask]  [dest_irods_path]
